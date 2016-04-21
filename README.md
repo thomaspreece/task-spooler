@@ -1,2 +1,2 @@
 # task-spooler
-Fork of task-spooler (found http://vicerveza.homeunix.net/~viric/soft/ts/)
+Fork of ts (task-spooler) which can be found at http://vicerveza.homeunix.net/~viric/soft/ts/)

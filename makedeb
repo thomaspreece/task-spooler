@@ -4,11 +4,11 @@
 
 version=0.5.4
 
-make install PREFIX=deb/usr
+make install PREFIX=deb/pkg/usr
 cd deb
 
 # data.tar.gz
-tar c --owner root --group root -v -z -f pkg/data.tar.gz usr
+tar c --owner root --group root -v -z -f ./data.tar.gz pkg/usr
 
 # control.tar.gz
 find usr/  -type f | xargs md5sum > pkg/DEBIAN/md5sums

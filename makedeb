@@ -5,6 +5,7 @@
 version=0.5.4
 
 make install PREFIX=deb/pkg/usr
+make install PREFIX=deb64/pkg/usr
 cd deb
 
 # data.tar.gz
@@ -15,4 +16,16 @@ find usr/  -type f | xargs md5sum > pkg/DEBIAN/md5sums
 
 dpkg -b pkg
 
-mv pkg.deb ts_${version}_i386.deb
+mv pkg.deb ../ts_${version}_i386.deb
+
+cd ../deb64
+# data.tar.gz
+tar c --owner root --group root -v -z -f ./data.tar.gz pkg/usr
+
+# control.tar.gz
+find usr/  -type f | xargs md5sum > pkg/DEBIAN/md5sums
+
+dpkg -b pkg
+
+mv pkg.deb ../ts_${version}_amd64.deb
+
